@@ -1,6 +1,6 @@
 # WelcomeHome
 
-After getting the app setup, run `bin/rake welcome_home:load_data`
+After getting the app setup (`bin/setup`), run `bin/rake welcome_home:load_data`
 
 In the Rails console, run these commands to get rent roll reports:
 
