@@ -19,7 +19,13 @@ class Unit < ApplicationRecord
       :number,
       :floor_plan,
       "residents.name AS resident_name",
-      "IIF(residents.move_in IS NULL, NULL, IIF(residents.move_in <= '#{date}', 'current', 'future')) AS resident_status",
+      "IIF(
+        residents.move_in IS NULL,
+        NULL,
+        IIF(
+          residents.move_in <= '#{date}', '#{I18n.t("current")}', '#{I18n.t("future")}'
+        )
+      ) AS resident_status",
       :move_in,
       :move_out
     )
