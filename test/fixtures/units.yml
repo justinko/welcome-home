@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  floor_plan: studio
+
+two:
+  number: 2
+  floor_plan: suite
+
+three:
+  number: 3
+  floor_plan: suite
+
+four:
+  number: 4
+  floor_plan: suite
+
+five:
+  number: 5
+  floor_plan: suite
+
+ten:
+  number: 10
+  floor_plan: studio
+
+eleven:
+  number: 11
+  floor_plan: studio
+
+twelve:
+  number: 12
+  floor_plan: studio
