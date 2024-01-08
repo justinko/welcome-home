@@ -7,6 +7,14 @@ class RentRoll
     Tabulo::Table.new(units, :number, :floor_plan, :resident_name, :resident_status, :move_in, :move_out).pack
   end
 
+  def statistics
+    {
+      vacant: units.where("residents.id IS NULL").count("*"),
+      occupied: units.where("residents.id IS NOT NULL").count("*"),
+      leased: units.where("residents.move_in IS NOT NULL").count("*")
+    }
+  end
+
   def units
     join = <<~SQL
       LEFT OUTER JOIN residents ON residents.id = (

@@ -5,6 +5,10 @@ class RentRollTest < ActiveSupport::TestCase
     assert_includes RentRoll.new.report.to_s, "John Smith"
   end
 
+  test "statistics" do
+    assert_equal({vacant: 5, occupied: 3, leased: 2}, RentRoll.new.statistics)
+  end
+
   test "units with the current date" do
     units = RentRoll.new.units
 
