@@ -11,7 +11,7 @@ class UnitTest < ActiveSupport::TestCase
     assert_equal "Sarah", rent_roll.second.resident_name
     assert_equal "current", rent_roll.second.resident_status
     assert_equal "Teddy", rent_roll.fifth.resident_name
-    assert_equal "current", rent_roll.fifth.resident_status
+    assert_nil rent_roll.fifth.resident_status
     assert_equal 12, rent_roll.last.number
     assert_nil rent_roll.last.resident_name
   end
@@ -23,7 +23,7 @@ class UnitTest < ActiveSupport::TestCase
     assert_equal "Sarah", rent_roll.second.resident_name
     assert_equal "future", rent_roll.second.resident_status
     assert_equal "Teddy", rent_roll.fifth.resident_name
-    assert_equal "current", rent_roll.fifth.resident_status
+    assert_nil rent_roll.fifth.resident_status
   end
 
   test "rent_roll with a date before all resident moves" do
@@ -33,6 +33,6 @@ class UnitTest < ActiveSupport::TestCase
     assert_equal "Sarah", rent_roll.second.resident_name
     assert_equal "future", rent_roll.second.resident_status
     assert_equal "Teddy", rent_roll.fifth.resident_name
-    assert_equal "current", rent_roll.fifth.resident_status
+    assert_nil rent_roll.fifth.resident_status
   end
 end

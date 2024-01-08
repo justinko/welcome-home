@@ -19,7 +19,7 @@ class Unit < ApplicationRecord
       :number,
       :floor_plan,
       "residents.name AS resident_name",
-      "IIF(COALESCE(residents.move_in, 0) <= '#{date}', 'current', 'future') AS resident_status",
+      "IIF(residents.move_in IS NULL, NULL, IIF(residents.move_in <= '#{date}', 'current', 'future')) AS resident_status",
       :move_in,
       :move_out
     )
