@@ -1,24 +1,41 @@
-# README
+# WelcomeHome
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+After getting the app setup, run `bin/rake welcome_home:load_data`
 
-Things you may want to cover:
+In the Rails console, run these commands to get rent roll reports:
 
-* Ruby version
+```
+puts Tabulo::Table.new(Unit.rent_roll, :number, :floor_plan, :resident_name, :resident_status, :move_in, :move_out).pack
 
-* System dependencies
++--------+------------+---------------+-----------------+------------+----------+
+| number | floor_plan | resident_name | resident_status |   move_in  | move_out |
++--------+------------+---------------+-----------------+------------+----------+
+|      1 | studio     | John Smith    | current         | 2021-01-01 |          |
+|      2 | suite      | Sarah         | current         | 2021-03-01 |          |
+|      3 | suite      |               | current         |            |          |
+|      4 | suite      |               | current         |            |          |
+|      5 | suite      | Teddy         | current         |            |          |
+|     10 | studio     |               | current         |            |          |
+|     11 | studio     |               | current         |            |          |
+|     12 | studio     |               | current         |            |          |
++--------+------------+---------------+-----------------+------------+----------+
 
-* Configuration
+puts Tabulo::Table.new(Unit.rent_roll("2020-01-01"), :number, :floor_plan, :resident_name, :resident_status, :move_in, :move_out).pack
 
-* Database creation
++--------+------------+---------------+-----------------+------------+------------+
+| number | floor_plan | resident_name | resident_status |   move_in  |  move_out  |
++--------+------------+---------------+-----------------+------------+------------+
+|      1 | studio     | Sally Carol   | current         | 2019-06-01 | 2020-12-15 |
+|      2 | suite      | Sarah         | future          | 2021-03-01 |            |
+|      3 | suite      |               | current         |            |            |
+|      4 | suite      |               | current         |            |            |
+|      5 | suite      | Teddy         | current         |            |            |
+|     10 | studio     |               | current         |            |            |
+|     11 | studio     |               | current         |            |            |
+|     12 | studio     |               | current         |            |            |
++--------+------------+---------------+-----------------+------------+------------+
+```
 
-* Database initialization
+## TODO
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Key Statistics
